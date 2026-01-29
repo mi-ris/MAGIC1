@@ -1,0 +1,9 @@
+
+{
+  "name": "MagicTris - Juego Educativo Mágico",
+  "description": "Plataforma de aprendizaje interactivo para niños con Síndrome de Down. Vocales, sílabas y fonética con IA.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

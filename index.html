@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MagicTris - El Mundo de Gumi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sky-light: #a5f3fc;
+            --sky-mid: #7dd3fc;
+            --sky-dark: #3b82f6;
+        }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(180deg, var(--sky-light) 0%, var(--sky-mid) 50%, var(--sky-dark) 100%);
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            user-select: none;
+            min-height: 100vh;
+            color: #1e3a8a;
+        }
+        h1, h2, h3, .font-magic { font-family: 'Fredoka One', cursive; }
+        
+        /* MAGIC TRIS: Texto azul con borde blanco */
+        .magic-title {
+            font-family: 'Fredoka One', cursive;
+            color: #1e40af; /* Azul fuerte */
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            -webkit-text-stroke: 3px white; /* Borde blanco ajustado */
+            text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .cloud-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .cloud-emoji {
+            position: absolute;
+            opacity: 0.8;
+            animation: float-cloud linear infinite;
+        }
+
+        @keyframes float-cloud {
+            from { transform: translateX(-20vw); }
+            to { transform: translateX(110vw); }
+        }
+
+        .btn-magic-pop {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 0 #c2410c; /* Sombra naranja oscuro */
+        }
+        .btn-magic-pop:active {
+            transform: translateY(6px);
+            box-shadow: 0 4px 0 #c2410c;
+        }
+
+        .card-magic {
+            background: white;
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .floating-gumi { animation: float 3s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        #root { min-height: 100vh; position: relative; z-index: 10; }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "react": "https://esm.sh/react@^19.2.4"
+      }
+    }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="cloud-container">
+        <div class="cloud-emoji text-[120px] top-10" style="animation-duration: 45s; left: -10%;">☁️</div>
+        <div class="cloud-emoji text-[180px] top-60" style="animation-duration: 70s; left: -25%;">☁️</div>
+        <div class="cloud-emoji text-[140px] top-20 right-0" style="animation-duration: 55s; left: 80%;">☁️</div>
+        <div class="cloud-emoji text-[100px] bottom-20" style="animation-duration: 50s; left: -15%;">☁️</div>
+    </div>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
