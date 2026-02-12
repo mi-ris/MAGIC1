@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sky-light: #a5f3fc;
+  --sky-mid: #7dd3fc;
+  --sky-dark: #3b82f6;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(180deg, var(--sky-light) 0%, var(--sky-mid) 50%, var(--sky-dark) 100%);
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  user-select: none;
+  min-height: 100vh;
+  color: #1e3a8a;
+}
+
+h1, h2, h3, .font-magic {
+  font-family: 'Fredoka One', cursive;
+}
+
+/* MAGIC TITLE */
+.magic-title {
+  font-family: 'Fredoka One', cursive;
+  color: #1e40af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  -webkit-text-stroke: 3px white;
+  text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* CLOUD ANIMATION */
+.cloud-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cloud-emoji {
+  position: absolute;
+  opacity: 0.8;
+  animation: float-cloud linear infinite;
+}
+
+@keyframes float-cloud {
+  from { transform: translateX(-20vw); }
+  to { transform: translateX(110vw); }
+}
+
+/* BUTTONS */
+.btn-magic-pop {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.btn-magic-pop:active {
+  transform: translateY(6px);
+}
+
+.btn-magic {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-magic:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+.btn-magic:active {
+  transform: translateY(4px);
+}
+
+.btn-bounce {
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.btn-bounce:active {
+  transform: scale(0.92);
+}
+
+/* CARD MAGIC */
+.card-magic {
+  background: white;
+  border-radius: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* FLOATING GUMI */
+.floating-gumi {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* BUBBLE ANIMATION */
+.bubble {
+  animation: bubble-rise 8s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes bubble-rise {
+  0% { transform: translateY(100vh); opacity: 0.6; }
+  100% { transform: translateY(-20vh); opacity: 0; }
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+}

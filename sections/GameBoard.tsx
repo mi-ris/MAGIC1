@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { User, MagicCard, GameState } from '../types';
 import VoiceButton from '../components/VoiceButton';
 
@@ -14,9 +14,11 @@ const GameBoard: React.FC<Props> = ({ user, card, onComplete, onBack }) => {
   const [gameState, setGameState] = useState<GameState['step']>('intro');
   const [feedback, setFeedback] = useState<'success' | 'error' | null>(null);
 
-  // Distractores para el juego de letras
-  const distractors = ['M', 'P', 'S', 'L', 'T', 'R'].filter(l => l !== card.value).slice(0, 2);
-  const letterChoices = [...distractors, card.value].sort(() => Math.random() - 0.5);
+  // Memoize letter choices so they don't re-shuffle on every render
+  const letterChoices = useMemo(() => {
+    const distractors = ['M', 'P', 'S', 'L', 'T', 'R'].filter(l => l !== card.value).slice(0, 2);
+    return [...distractors, card.value].sort(() => Math.random() - 0.5);
+  }, [card.value]);
 
   const handleCorrectIdentify = () => {
     setFeedback('success');
