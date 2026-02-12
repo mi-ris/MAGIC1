@@ -102,6 +102,8 @@ const App: React.FC = () => {
     }
   };
 
+  console.log("[v0] App rendering, section:", section, "selectedCardIndex:", selectedCardIndex, "user:", user?.nickname);
+
   return (
     <div className="min-h-screen">
       {renderSection()}
